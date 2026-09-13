@@ -1,0 +1,67 @@
+[
+  {
+    "event_id": "EVT-JSON-001",
+    "timestamp": "2026-09-10T08:15:22Z",
+    "event_type": "AUTHENTICATION",
+    "severity": "LOW",
+    "source_ip": "192.168.1.105",
+    "destination_ip": "10.0.0.15",
+    "asset_id": "SRV-AUTH-01",
+    "user_id": "alice.smith",
+    "action": "LOGIN_SUCCESS",
+    "status": "SUCCESS",
+    "description": "Successful domain controller authentication"
+  },
+  {
+    "event_id": "EVT-JSON-002",
+    "timestamp": "2026-09-10T08:22:45Z",
+    "event_type": "FIREWALL",
+    "severity": "MEDIUM",
+    "source_ip": "203.0.113.45",
+    "destination_ip": "10.0.0.50",
+    "asset_id": "FW-EDGE-01",
+    "user_id": "anonymous",
+    "action": "PORT_SCAN_BLOCKED",
+    "status": "BLOCKED",
+    "description": "Blocked inbound TCP syn port scan on port 445"
+  },
+  {
+    "event_id": "EVT-JSON-003",
+    "timestamp": "2026-09-10T08:31:10Z",
+    "event_type": "MALWARE_DETECTION",
+    "severity": "CRITICAL",
+    "source_ip": "192.168.2.88",
+    "destination_ip": "198.51.100.12",
+    "asset_id": "WS-FIN-004",
+    "user_id": "bob.jones",
+    "action": "C2_BEACON_DETECTED",
+    "status": "ALERTED",
+    "description": "Cobalt Strike beacon signature matched on outbound DNS traffic"
+  },
+  {
+    "event_id": "EVT-JSON-004",
+    "timestamp": "2026-09-10T08:45:00Z",
+    "event_type": "DATA_EXFILTRATION",
+    "severity": "HIGH",
+    "source_ip": "192.168.2.88",
+    "destination_ip": "198.51.100.12",
+    "asset_id": "WS-FIN-004",
+    "user_id": "bob.jones",
+    "action": "LARGE_OUTBOUND_TRANSFER",
+    "status": "DETECTED",
+    "description": "5.2 GB encrypted archive sent to unauthorized external IP"
+  },
+  {
+    "event_id": "EVT-JSON-005",
+    "timestamp": "2026-09-10T09:00:15Z",
+    "event_type": "EDR",
+    "severity": "HIGH",
+    "source_ip": "192.168.3.12",
+    "destination_ip": "10.0.0.22",
+    "asset_id": "WS-ENG-019",
+    "user_id": "charlie.davis",
+    "action": "MIMIKATZ_INJECTION",
+    "status": "QUARANTINED",
+    "description": "LSASS memory dumping attempt terminated by agent"
+  }
+]

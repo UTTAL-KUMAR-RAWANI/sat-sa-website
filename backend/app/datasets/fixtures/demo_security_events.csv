@@ -1,0 +1,29 @@
+event_id,timestamp,event_type,severity,source,source_ip,destination_ip,asset_id,user_identifier,action,message
+EVT-LOG-001,2026-09-10T08:15:22Z,FIREWALL_DROP,LOW,Palo Alto NGFW,198.51.100.42,10.0.1.50,FW-PERIMETER-01,system,DROP,Inbound probe blocked on TCP 445
+EVT-LOG-002,2026-09-10T08:22:45Z,AUTH_FAILURE,MEDIUM,Active Directory,10.0.4.15,10.0.1.10,DC-PROD-01,jdoe@domain.local,FAILED,Kerberos pre-authentication failure 3 attempts
+EVT-LOG-003,2026-09-10T08:45:10Z,PORT_SCAN,MEDIUM,Suricata IDS,203.0.113.19,10.0.1.50,FW-PERIMETER-01,system,DETECT,Reconnaissance scan detected against DMZ subnets
+EVT-LOG-004,2026-09-10T09:12:00Z,EDR_MALWARE_BLOCK,HIGH,CrowdStrike Falcon,10.0.4.88,10.0.1.5,WS-FIN-042,asmith@domain.local,QUARANTINE,Trojan:Win32/CobaltStrike blocked in memory
+EVT-LOG-005,2026-09-10T09:30:15Z,SUSPICIOUS_OUTBOUND_BEACON,HIGH,Splunk SIEM,10.0.4.88,198.51.100.88,WS-FIN-042,asmith@domain.local,ALERT,Persistent C2 beaconing pattern to unclassified domain
+EVT-LOG-006,2026-09-10T10:05:40Z,PRIVILEGE_ESCALATION,CRITICAL,CrowdStrike Falcon,10.0.4.88,10.0.1.10,WS-FIN-042,system,DETECT,Token impersonation detected targeting SeDebugPrivilege
+EVT-LOG-007,2026-09-10T10:20:11Z,DATA_EXFILTRATION_DETECTED,CRITICAL,Palo Alto NGFW,10.0.4.88,203.0.113.55,WS-FIN-042,asmith@domain.local,BLOCKED,Encrypted payload transfer exceeding 4.2 GB blocked
+EVT-LOG-008,2026-09-10T11:00:00Z,VPN_LOGIN_SUCCESS,LOW,Active Directory,198.51.100.12,10.0.2.1,VPN-GATEWAY-01,rjohnson@domain.local,ALLOW,RADIUS authenticated remote session
+EVT-LOG-009,2026-09-10T11:15:33Z,FIREWALL_DROP,LOW,Palo Alto NGFW,198.51.100.99,10.0.1.50,FW-PERIMETER-01,system,DROP,Drop unsolicited UDP 53 DNS response
+EVT-LOG-010,2026-09-10T11:45:12Z,DATABASE_INJECTION_ATTEMPT,HIGH,AWS CloudTrail,203.0.113.4,10.0.3.100,SRV-CORE-DB01,app_frontend,ALERT,SQL syntax pattern detected in customer portal query
+EVT-LOG-011,2026-09-11T08:00:10Z,AUTH_FAILURE,MEDIUM,Active Directory,10.0.4.22,10.0.1.10,DC-PROD-01,guest,FAILED,Account locked out after consecutive failed attempts
+EVT-LOG-012,2026-09-11T09:14:22Z,EDR_MALWARE_BLOCK,HIGH,CrowdStrike Falcon,10.0.4.102,10.0.1.5,WS-ENG-012,dev_user,QUARANTINE,Malicious PowerShell script execution prevented
+EVT-LOG-013,2026-09-11T10:30:45Z,FIREWALL_DROP,LOW,Palo Alto NGFW,198.51.100.15,10.0.1.50,FW-PERIMETER-01,system,DROP,SYN flood mitigation triggered on border gateway
+EVT-LOG-014,2026-09-11T11:45:00Z,SUSPICIOUS_OUTBOUND_BEACON,HIGH,Splunk SIEM,10.0.4.102,198.51.100.101,WS-ENG-012,dev_user,ALERT,DNS tunneling pattern detected over port 53
+EVT-LOG-015,2026-09-11T13:20:18Z,DATA_EXFILTRATION_DETECTED,CRITICAL,Palo Alto NGFW,10.0.4.102,203.0.113.77,WS-ENG-012,dev_user,BLOCKED,Anomalous multi-gigabyte upload to offshore storage blocked
+EVT-LOG-016,2026-09-11T14:10:05Z,FIREWALL_DROP,LOW,Palo Alto NGFW,198.51.100.77,10.0.1.50,FW-PERIMETER-01,system,DROP,Border filter dropped non-standard ICMP request
+EVT-LOG-017,2026-09-12T08:11:15Z,DATABASE_INJECTION_ATTEMPT,HIGH,Splunk SIEM,203.0.113.200,10.0.3.100,SRV-CORE-DB01,app_frontend,ALERT,Blind SQL injection payload identified in auth headers
+EVT-LOG-018,2026-09-12T09:40:22Z,PRIVILEGE_ESCALATION,CRITICAL,CrowdStrike Falcon,10.0.3.100,10.0.1.10,SRV-CORE-DB01,db_admin,DETECT,Unauthorized sudoers elevation by service daemon
+EVT-LOG-019,2026-09-12T10:15:30Z,EDR_MALWARE_BLOCK,HIGH,CrowdStrike Falcon,10.0.4.15,10.0.1.5,WS-EXEC-01,exec_user,QUARANTINE,Weaponized macro attachment prevented in Outlook
+EVT-LOG-020,2026-09-12T11:00:44Z,VPN_LOGIN_SUCCESS,LOW,Active Directory,198.51.100.5,10.0.2.1,VPN-GATEWAY-01,exec_user,ALLOW,MFA verified tunnel established
+EVT-LOG-021,2026-09-12T12:30:19Z,FIREWALL_DROP,LOW,Palo Alto NGFW,198.51.100.80,10.0.1.50,FW-PERIMETER-01,system,DROP,Egress firewall dropped connection to blacklisted IP
+EVT-LOG-022,2026-09-12T13:45:10Z,PORT_SCAN,MEDIUM,Suricata IDS,203.0.113.88,10.0.1.50,FW-PERIMETER-01,system,DETECT,Horizontal sweep detected across internal subnet
+EVT-LOG-023,2026-09-12T14:50:00Z,SUSPICIOUS_OUTBOUND_BEACON,HIGH,Splunk SIEM,10.0.4.15,198.51.100.120,WS-EXEC-01,exec_user,ALERT,Encrypted HTTPS beacon with randomized jitter interval
+EVT-LOG-024,2026-09-12T15:20:35Z,AUTH_FAILURE,MEDIUM,Active Directory,10.0.4.55,10.0.1.10,DC-PROD-01,service_svc,FAILED,Password spray pattern detected against domain controllers
+EVT-LOG-025,2026-09-12T16:00:12Z,DATA_EXFILTRATION_DETECTED,CRITICAL,Palo Alto NGFW,10.0.3.100,203.0.113.99,SRV-CORE-DB01,app_frontend,BLOCKED,High-volume database table dump transmission blocked
+EVT-LOG-006,2026-09-10T10:05:40Z,PRIVILEGE_ESCALATION,CRITICAL,CrowdStrike Falcon,10.0.4.88,10.0.1.10,WS-FIN-042,system,DETECT,Token impersonation detected targeting SeDebugPrivilege
+EVT-LOG-026,INVALID_TIMESTAMP_STRING,FIREWALL_DROP,LOW,Palo Alto NGFW,10.0.4.99,10.0.1.50,FW-PERIMETER-01,system,DROP,Invalid date format record for validation testing
+EVT-LOG-027,2026-09-12T17:15:00Z,FIREWALL_DROP,UNKNOWN_SEV,Palo Alto NGFW,999.999.999.999,10.0.1.50,FW-PERIMETER-01,system,DROP,Warning record with invalid IP and unknown severity

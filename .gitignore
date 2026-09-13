@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+backend/venv/
+backend/env/
+venv/
+env/
+
+# Build artifacts
+frontend/.next/
+frontend/out/
+build/
+dist/
+*.egg-info/
+
+# Python cache & test artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local Environment & Secrets (Keep .env.example tracked)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+backend/.env
+frontend/.env.local
+
+# Runtime uploads & logs
+backend/uploads/
+uploads/
+*.log
+
+# OS & IDE metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,218 @@
+# Granular SAT-SA Permissions
+
+# Identity, Administration & System
+USERS_MANAGE = "users.manage"
+USERS_READ = "users.read"
+ROLES_MANAGE = "roles.manage"
+ROLES_READ = "roles.read"
+PERMISSIONS_MANAGE = "permissions.manage"
+PERMISSIONS_READ = "permissions.read"
+DEPARTMENTS_MANAGE = "departments.manage"
+DEPARTMENTS_READ = "departments.read"
+ORGANIZATIONS_MANAGE = "organizations.manage"
+ORGANIZATIONS_READ = "organizations.read"
+SECTORS_MANAGE = "sectors.manage"
+SECTORS_READ = "sectors.read"
+ACCESS_REQUESTS_MANAGE = "access_requests.manage"
+ACCESS_REQUESTS_READ = "access_requests.read"
+SYSTEM_SETTINGS_MANAGE = "system_settings.manage"
+SYSTEM_STATUS_READ = "system_status.read"
+AUDIT_LOGS_READ = "audit_logs.read"
+AUDIT_LOGS_EXPORT = "audit_logs.export"
+MY_WORK_READ = "my_work.read"
+
+# Alerts & CSE
+ALERTS_READ = "alerts.read"
+ALERTS_MANAGE = "alerts.manage"
+CSE_READ = "cse.read"
+CSE_CREATE = "cse.create"
+CSE_UPDATE = "cse.update"
+CSE_ASSIGN = "cse.assign"
+CSE_ESCALATE = "cse.escalate"
+CSE_CLOSE = "cse.close"
+
+# Investigations & Evidence
+INVESTIGATIONS_READ = "investigations.read"
+INVESTIGATIONS_CREATE = "investigations.create"
+INVESTIGATIONS_UPDATE = "investigations.update"
+EVIDENCE_READ = "evidence.read"
+EVIDENCE_CREATE = "evidence.create"
+EVIDENCE_VERIFY = "evidence.verify"
+
+# Findings
+FINDING_READ = "finding.read"
+FINDING_CREATE = "finding.create"
+FINDING_UPDATE = "finding.update"
+FINDING_SUBMIT = "finding.submit"
+FINDING_REVIEW = "finding.review"
+FINDING_APPROVE = "finding.approve"
+FINDING_REJECT = "finding.reject"
+FINDING_CLOSE = "finding.close"
+
+# Assessments & Controls
+ASSESSMENT_READ = "assessment.read"
+ASSESSMENT_CREATE = "assessment.create"
+ASSESSMENT_UPDATE = "assessment.update"
+ASSESSMENT_ASSIGN = "assessment.assign"
+ASSESSMENT_SUBMIT = "assessment.submit"
+ASSESSMENT_REVIEW = "assessment.review"
+ASSESSMENT_APPROVE = "assessment.approve"
+ASSESSMENT_REJECT = "assessment.reject"
+ASSESSMENT_CLOSE = "assessment.close"
+ASSESSMENT_CONTROLS_READ = "assessment_controls.read"
+ASSESSMENT_CONTROLS_UPDATE = "assessment_controls.update"
+CONTROL_READ = "control.read"
+CONTROL_UPDATE = "control.update"
+
+# Risk & GRC
+RISK_READ = "risk.read"
+RISK_CREATE = "risk.create"
+RISK_UPDATE = "risk.update"
+RISK_ASSIGN = "risk.assign"
+RISK_ASSESS = "risk.assess"
+RISK_TREAT = "risk.treat"
+RISK_ACCEPT = "risk.accept"
+RISK_CLOSE = "risk.close"
+RISK_REVIEW = "risk.review"
+RISK_APPROVE = "risk.approve"
+
+RISK_EXCEPTION_READ = "risk_exception.read"
+RISK_EXCEPTION_CREATE = "risk_exception.create"
+RISK_EXCEPTION_REVIEW = "risk_exception.review"
+RISK_EXCEPTION_APPROVE = "risk_exception.approve"
+RISK_EXCEPTION_CLOSE = "risk_exception.close"
+
+RISK_TREATMENT_READ = "risk_treatment.read"
+RISK_TREATMENT_CREATE = "risk_treatment.create"
+RISK_TREATMENT_UPDATE = "risk_treatment.update"
+RISK_TREATMENT_REVIEW = "risk_treatment.review"
+
+# Legacy aliases
+RISK_TREATMENT = "risk.treatment"
+RISK_EXCEPTIONS = "risk.exceptions"
+
+# Remediation
+REMEDIATION_READ = "remediation.read"
+REMEDIATION_CREATE = "remediation.create"
+REMEDIATION_UPDATE = "remediation.update"
+REMEDIATION_ASSIGN = "remediation.assign"
+REMEDIATION_START = "remediation.start"
+REMEDIATION_BLOCK = "remediation.block"
+REMEDIATION_SUBMIT_EVIDENCE = "remediation.submit_evidence"
+REMEDIATION_VALIDATE = "remediation.validate"
+REMEDIATION_VERIFY = "remediation.verify"
+REMEDIATION_CLOSE = "remediation.close"
+
+REMEDIATION_EVIDENCE_READ = "remediation_evidence.read"
+REMEDIATION_EVIDENCE_CREATE = "remediation_evidence.create"
+REMEDIATION_EVIDENCE_VERIFY = "remediation_evidence.verify"
+REMEDIATION_EVIDENCE_REJECT = "remediation_evidence.reject"
+REMEDIATION_EVIDENCE = "remediation.evidence" # Legacy alias
+
+ASSIGNMENTS_READ = "assignments.read"
+
+# Supervision & Analytics
+SUPERVISION_READ = "supervision.read"
+SUPERVISION_CREATE = "supervision.create"
+SUPERVISION_ASSIGN = "supervision.assign"
+SUPERVISION_REVIEW = "supervision.review"
+SUPERVISION_RECOMMEND = "supervision.recommend"
+SUPERVISION_ESCALATE = "supervision.escalate"
+SUPERVISION_DECIDE = "supervision.decide"
+SUPERVISION_APPROVE = "supervision.approve"
+SUPERVISION_CLOSE = "supervision.close"
+
+SUPERVISORY_CASE_READ = "supervisory_case.read"
+SUPERVISORY_CASE_CREATE = "supervisory_case.create"
+SUPERVISORY_CASE_UPDATE = "supervisory_case.update"
+SUPERVISORY_CASE_ASSIGN = "supervisory_case.assign"
+SUPERVISORY_CASE_REVIEW = "supervisory_case.review"
+SUPERVISORY_CASE_CLOSE = "supervisory_case.close"
+
+ESCALATION_READ = "escalation.read"
+ESCALATION_CREATE = "escalation.create"
+ESCALATION_ASSIGN = "escalation.assign"
+ESCALATION_RESOLVE = "escalation.resolve"
+ESCALATION_CLOSE = "escalation.close"
+
+SUPERVISORY_DECISION_READ = "supervisory_decision.read"
+SUPERVISORY_DECISION_CREATE = "supervisory_decision.create"
+SUPERVISORY_DECISION_APPROVE = "supervisory_decision.approve"
+SUPERVISORY_DECISION_CLOSE = "supervisory_decision.close"
+SUPERVISION_DECISIONS = "supervision.decisions" # Legacy alias
+
+# Datasets & Analytics
+DATASET_READ = "dataset.read"
+DATASET_CREATE = "dataset.create"
+DATASET_UPDATE = "dataset.update"
+DATASET_UPLOAD = "dataset.upload"
+DATASET_VALIDATE = "dataset.validate"
+DATASET_IMPORT = "dataset.import"
+DATASET_DELETE = "dataset.delete"
+DATASETS_READ = "datasets.read"  # Alias
+
+ANALYTICS_READ = "analytics.read"
+ANALYTICS_RUN = "analytics.run"
+NOTIFICATIONS_READ = "notifications.read"
+
+# Negative Space Assessment & Signals
+NEGATIVE_SPACE_READ = "negative_space.read"
+NEGATIVE_SPACE_CREATE = "negative_space.create"
+NEGATIVE_SPACE_RUN = "negative_space.run"
+NEGATIVE_SPACE_REVIEW = "negative_space.review"
+NEGATIVE_SPACE_VALIDATE = "negative_space.validate"
+NEGATIVE_SPACE_DISMISS = "negative_space.dismiss"
+NEGATIVE_SPACE_CONVERT_FINDING = "negative_space.convert_finding"
+
+NEGATIVE_SPACE_SIGNAL_READ = "negative_space_signal.read"
+NEGATIVE_SPACE_SIGNAL_REVIEW = "negative_space_signal.review"
+NEGATIVE_SPACE_SIGNAL_VALIDATE = "negative_space_signal.validate"
+NEGATIVE_SPACE_SIGNAL_DISMISS = "negative_space_signal.dismiss"
+
+# Executive Dashboards & Reporting
+EXECUTIVE_CISO_READ = "executive.ciso.read"
+EXECUTIVE_MANAGEMENT_READ = "executive.management.read"
+EXECUTIVE_EXPORT = "executive.export"
+
+ALL_PERMISSIONS = [
+    USERS_MANAGE, USERS_READ,
+    ROLES_MANAGE, ROLES_READ,
+    PERMISSIONS_MANAGE, PERMISSIONS_READ,
+    DEPARTMENTS_MANAGE, DEPARTMENTS_READ,
+    ORGANIZATIONS_MANAGE, ORGANIZATIONS_READ,
+    SECTORS_MANAGE, SECTORS_READ,
+    ACCESS_REQUESTS_MANAGE, ACCESS_REQUESTS_READ,
+    SYSTEM_SETTINGS_MANAGE, SYSTEM_STATUS_READ, AUDIT_LOGS_READ,
+    ALERTS_READ, ALERTS_MANAGE,
+    CSE_READ, CSE_CREATE, CSE_UPDATE, CSE_ASSIGN, CSE_ESCALATE, CSE_CLOSE,
+    INVESTIGATIONS_READ, INVESTIGATIONS_CREATE, INVESTIGATIONS_UPDATE,
+    EVIDENCE_READ, EVIDENCE_CREATE, EVIDENCE_VERIFY,
+    FINDING_READ, FINDING_CREATE, FINDING_UPDATE, FINDING_SUBMIT,
+    FINDING_REVIEW, FINDING_APPROVE, FINDING_REJECT, FINDING_CLOSE,
+    ASSESSMENT_READ, ASSESSMENT_CREATE, ASSESSMENT_UPDATE, ASSESSMENT_ASSIGN, ASSESSMENT_SUBMIT,
+    ASSESSMENT_REVIEW, ASSESSMENT_APPROVE, ASSESSMENT_REJECT, ASSESSMENT_CLOSE,
+    ASSESSMENT_CONTROLS_READ, ASSESSMENT_CONTROLS_UPDATE,
+    CONTROL_READ, CONTROL_UPDATE,
+    RISK_READ, RISK_CREATE, RISK_UPDATE, RISK_ASSIGN, RISK_ASSESS, RISK_TREAT, RISK_ACCEPT, RISK_CLOSE, RISK_REVIEW, RISK_APPROVE,
+    RISK_EXCEPTION_READ, RISK_EXCEPTION_CREATE, RISK_EXCEPTION_REVIEW, RISK_EXCEPTION_APPROVE, RISK_EXCEPTION_CLOSE,
+    RISK_TREATMENT_READ, RISK_TREATMENT_CREATE, RISK_TREATMENT_UPDATE, RISK_TREATMENT_REVIEW,
+    RISK_TREATMENT, RISK_EXCEPTIONS,
+    REMEDIATION_READ, REMEDIATION_CREATE, REMEDIATION_UPDATE, REMEDIATION_ASSIGN,
+    REMEDIATION_START, REMEDIATION_BLOCK, REMEDIATION_SUBMIT_EVIDENCE, REMEDIATION_VALIDATE,
+    REMEDIATION_VERIFY, REMEDIATION_CLOSE, REMEDIATION_EVIDENCE_READ, REMEDIATION_EVIDENCE_CREATE,
+    REMEDIATION_EVIDENCE_VERIFY, REMEDIATION_EVIDENCE_REJECT, REMEDIATION_EVIDENCE,
+    SUPERVISION_READ, SUPERVISION_CREATE, SUPERVISION_ASSIGN, SUPERVISION_REVIEW,
+    SUPERVISION_RECOMMEND, SUPERVISION_ESCALATE, SUPERVISION_DECIDE, SUPERVISION_APPROVE, SUPERVISION_CLOSE,
+    SUPERVISORY_CASE_READ, SUPERVISORY_CASE_CREATE, SUPERVISORY_CASE_UPDATE, SUPERVISORY_CASE_ASSIGN,
+    SUPERVISORY_CASE_REVIEW, SUPERVISORY_CASE_CLOSE,
+    ESCALATION_READ, ESCALATION_CREATE, ESCALATION_ASSIGN, ESCALATION_RESOLVE, ESCALATION_CLOSE,
+    SUPERVISORY_DECISION_READ, SUPERVISORY_DECISION_CREATE, SUPERVISORY_DECISION_APPROVE, SUPERVISORY_DECISION_CLOSE,
+    ASSIGNMENTS_READ, SUPERVISION_DECISIONS,
+    DATASET_READ, DATASET_CREATE, DATASET_UPDATE, DATASET_UPLOAD, DATASET_VALIDATE, DATASET_IMPORT, DATASET_DELETE, DATASETS_READ,
+    ANALYTICS_READ, ANALYTICS_RUN, NOTIFICATIONS_READ,
+    NEGATIVE_SPACE_READ, NEGATIVE_SPACE_CREATE, NEGATIVE_SPACE_RUN, NEGATIVE_SPACE_REVIEW,
+    NEGATIVE_SPACE_VALIDATE, NEGATIVE_SPACE_DISMISS, NEGATIVE_SPACE_CONVERT_FINDING,
+    NEGATIVE_SPACE_SIGNAL_READ, NEGATIVE_SPACE_SIGNAL_REVIEW, NEGATIVE_SPACE_SIGNAL_VALIDATE, NEGATIVE_SPACE_SIGNAL_DISMISS,
+    EXECUTIVE_CISO_READ, EXECUTIVE_MANAGEMENT_READ, EXECUTIVE_EXPORT,
+    AUDIT_LOGS_EXPORT, MY_WORK_READ,
+]
