@@ -121,11 +121,14 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
 }
 
@@ -157,21 +160,27 @@
 .translate-z-10 {
   transform: translateZ(10px);
 }
+
 .translate-z-20 {
   transform: translateZ(20px);
 }
+
 .translate-z-30 {
   transform: translateZ(30px);
 }
+
 .translate-z-40 {
   transform: translateZ(40px);
 }
+
 .translate-z-60 {
   transform: translateZ(60px);
 }
+
 .translate-z-neg-20 {
   transform: translateZ(-20px);
 }
+
 .translate-z-neg-40 {
   transform: translateZ(-40px);
 }
@@ -179,23 +188,26 @@
 /* Subtle Spatial Atmosphere Grids */
 .bg-spatial-grid {
   background-size: 40px 40px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 .bg-spatial-grid-dense {
   background-size: 20px 20px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(16, 185, 129, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
 }
 
 /* Keyframe Animations */
 @keyframes spatial-float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotateX(0deg);
   }
+
   50% {
     transform: translateY(-8px) rotateX(1deg);
   }
@@ -205,6 +217,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -214,16 +227,20 @@
   0% {
     transform: rotate(360deg);
   }
+
   100% {
     transform: rotate(0deg);
   }
 }
 
 @keyframes pulse-beacon {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.3;
     transform: scale(0.98);
   }
+
   50% {
     opacity: 0.8;
     transform: scale(1.02);
@@ -248,6 +265,7 @@
 
 /* Accessibility: Respect Reduced Motion Preferences */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -256,14 +274,17 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
   .preserve-3d {
     transform-style: flat !important;
   }
+
   .perspective-1000,
   .perspective-1200,
   .perspective-2000 {
     perspective: none !important;
   }
+
   .translate-z-10,
   .translate-z-20,
   .translate-z-30,

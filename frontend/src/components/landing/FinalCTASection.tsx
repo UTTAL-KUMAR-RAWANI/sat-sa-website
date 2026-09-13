@@ -2,8 +2,9 @@
 
 import React from "react";
 import Link from "next/link";
-import { Shield, ArrowRight, Terminal, Code2, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, LogIn, UserPlus } from "lucide-react";
 import SpatialLayer from "./SpatialLayer";
+import BrandLogo from "@/components/common/BrandLogo";
 
 export default function FinalCTASection() {
     return (
@@ -15,9 +16,12 @@ export default function FinalCTASection() {
                 <SpatialLayer maxTilt={3} depth={10}>
                     <div className="p-10 sm:p-16 rounded-3xl border border-slate-800 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950/95 shadow-2xl backdrop-blur-xl space-y-8">
                         
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950 border border-slate-800 text-xs font-mono text-emerald-400">
-                            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                            <span>EXPERIENCE THE PROTOCOL</span>
+                        <div className="flex flex-col items-center gap-3">
+                            <BrandLogo size="lg" priority />
+                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950 border border-slate-800 text-xs font-mono text-emerald-400">
+                                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                                <span>CENTRALIZED SUPERVISORY COMMAND</span>
+                            </div>
                         </div>
 
                         <div className="space-y-4 max-w-2xl mx-auto">
@@ -30,30 +34,35 @@ export default function FinalCTASection() {
                             </p>
                         </div>
 
-                        {/* CTA Buttons */}
+                        {/* CTA Buttons: Login (Primary) & Request Access (Secondary) */}
                         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
                             <Link
                                 href="/login"
-                                className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-bold text-sm shadow-xl shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-105 active:scale-95 transition-all"
+                                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-bold text-sm shadow-xl shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-emerald-400"
                             >
-                                <Terminal className="h-4 w-4" />
-                                <span>Launch Interactive Console</span>
+                                <LogIn className="h-4 w-4" />
+                                <span>Login</span>
                                 <ArrowRight className="h-4 w-4" />
                             </Link>
 
                             <Link
-                                href="/login"
-                                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl bg-slate-950 hover:bg-slate-900 border border-slate-800 text-slate-200 hover:text-emerald-400 font-semibold text-sm transition-colors"
+                                href="/request-access"
+                                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl bg-slate-950 hover:bg-slate-900 border border-slate-700/80 hover:border-emerald-500/50 text-slate-100 hover:text-emerald-400 font-semibold text-sm shadow-lg shadow-black/20 hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500"
                             >
-                                <span>Select Demo Role</span>
+                                <UserPlus className="h-4 w-4 text-emerald-400" />
+                                <span>Request Access</span>
                             </Link>
+                        </div>
+
+                        <div className="text-xs text-slate-400 font-mono">
+                            <span>Authorized users sign in directly. Prospective users submit requests for CSE Administrator review.</span>
                         </div>
 
                         {/* Platform Readiness Badge */}
                         <div className="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono">
                             <span className="flex items-center gap-1.5">
                                 <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-                                99 Automated Pytest Suites Passing
+                                100+ Automated Pytest Suites Passing
                             </span>
                             <span className="flex items-center gap-1.5">
                                 <CheckCircle2 className="h-4 w-4 text-emerald-400" />
@@ -61,7 +70,7 @@ export default function FinalCTASection() {
                             </span>
                             <span className="flex items-center gap-1.5">
                                 <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-                                Zero Disconnected Mock Data
+                                End-to-End PostgreSQL Traceability
                             </span>
                         </div>
 
@@ -71,3 +80,4 @@ export default function FinalCTASection() {
         </section>
     );
 }
+

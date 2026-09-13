@@ -2,13 +2,13 @@
 
 import React from "react";
 import Link from "next/link";
-import { 
-    BarChart3, 
-    ShieldAlert, 
-    CheckCircle2, 
-    TrendingUp, 
-    Clock, 
-    Layers, 
+import {
+    BarChart3,
+    ShieldAlert,
+    CheckCircle2,
+    TrendingUp,
+    Clock,
+    Layers,
     ArrowRight,
     Award
 } from "lucide-react";
@@ -21,7 +21,7 @@ export default function ExecutiveSection() {
             <div className="absolute top-1/3 right-1/3 w-96 h-96 bg-emerald-600/5 rounded-full blur-[140px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                
+
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-emerald-400">
@@ -32,18 +32,18 @@ export default function ExecutiveSection() {
                         Real-Time Command for Security Leadership
                     </h2>
                     <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                        CISO and Senior Management dashboards aggregate live operational telemetry, 
+                        CISO and Senior Management dashboards aggregate live operational telemetry,
                         providing instantaneous strategic oversight without waiting for monthly audit cycles.
                     </p>
                 </div>
 
                 {/* Dual Executive Command View */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    
+
                     {/* CISO Command Card */}
                     <SpatialLayer maxTilt={3} depth={8} className="h-full">
                         <div className="p-8 rounded-3xl border border-slate-800 bg-gradient-to-b from-slate-900/90 to-slate-950/95 shadow-2xl backdrop-blur-xl h-full flex flex-col justify-between space-y-6">
-                            
+
                             <div className="space-y-4">
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
@@ -97,7 +97,7 @@ export default function ExecutiveSection() {
                     {/* Senior Management Governance Card */}
                     <SpatialLayer maxTilt={3} depth={8} className="h-full">
                         <div className="p-8 rounded-3xl border border-slate-800 bg-gradient-to-b from-slate-900/90 to-slate-950/95 shadow-2xl backdrop-blur-xl h-full flex flex-col justify-between space-y-6">
-                            
+
                             <div className="space-y-4">
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">

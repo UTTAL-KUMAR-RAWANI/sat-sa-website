@@ -664,6 +664,7 @@ class AdminService:
             # Immediately update the requester's actual User record in PostgreSQL!
             requester = access_req.requester
             if requester:
+                requester.is_active = True
                 if access_req.requested_role and access_req.requested_role not in requester.roles:
                     requester.roles.append(access_req.requested_role)
                 if access_req.requested_organization_id:

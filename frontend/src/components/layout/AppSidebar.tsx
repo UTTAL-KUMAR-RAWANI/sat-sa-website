@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import BrandLogo from "@/components/common/BrandLogo";
 import { useAuth } from "@/lib/auth/AuthContext";
 import { getVisibleNavSections, NavSection } from "@/lib/navigation/nav-config";
 import {
@@ -80,9 +81,7 @@ export default function AppSidebar({ isOpenMobile, onCloseMobile }: AppSidebarPr
                         onClick={onCloseMobile}
                         className="flex items-center gap-2.5 overflow-hidden"
                     >
-                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-tr from-emerald-600 to-teal-400 text-slate-950 shadow-md shadow-emerald-500/20">
-                            <Shield className="h-4 w-4 fill-slate-950" />
-                        </div>
+                        <BrandLogo size="sm" priority />
                         {!collapsed && (
                             <div className="flex flex-col truncate">
                                 <span className="text-sm font-bold tracking-tight text-white leading-none">

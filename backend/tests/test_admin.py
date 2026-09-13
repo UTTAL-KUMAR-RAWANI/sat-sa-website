@@ -160,3 +160,54 @@ def test_admin_system_settings_and_status():
     status_data = res_status.json()
     assert status_data["database_status"] == "CONNECTED"
     assert status_data["database_latency_ms"] >= 0
+
+def test_public_request_access_and_admin_review_flow():
+    # 1. Prospective user submits public access request without authentication
+    test_email = "prospective.analyst@national-bank.org"
+    req_payload = {
+        "full_name": "Elena Rostova",
+        "email": test_email,
+        "organization_name": "National Central Bank",
+        "department_name": "Threat Intelligence Unit",
+        "job_title": "Senior Forensic Analyst",
+        "requested_role": "SOC Analyst",
+        "sector_name": "Financial Services",
+        "reason": "Need platform access to correlate financial telemetry against supervisory indicators.",
+        "additional_notes": "Clearance Level 3 Certified."
+    }
+
+    res_submit = client.post("/api/v1/auth/request-access", json=req_payload)
+    assert res_submit.status_code == 200
+    submit_data = res_submit.json()
+    assert submit_data["status"] == "PENDING"
+    request_id = submit_data["request_id"]
+
+    # 2. Administrator logs in and views the pending access request
+    admin_token = login_user("admin@sat-sa.local")
+    res_list = client.get("/api/v1/admin/access-requests?status=PENDING", cookies={"access_token": admin_token})
+    assert res_list.status_code == 200
+    pending_requests = res_list.json()
+    matched = [r for r in pending_requests if r["id"] == request_id]
+    assert len(matched) == 1
+    assert matched[0]["requester_email"] == test_email
+    assert matched[0]["status"] == "PENDING"
+
+    # 3. Administrator approves the request
+    res_review = client.post(
+        f"/api/v1/admin/access-requests/{request_id}/review",
+        json={"decision": "APPROVE", "comments": "Approved after verification of operational credentials."},
+        cookies={"access_token": admin_token}
+    )
+    assert res_review.status_code == 200
+    assert res_review.json()["status"] == "APPROVED"
+
+    # 4. Verify the prospective user is now active in the database
+    db = SessionLocal()
+    try:
+        user = db.query(User).filter(User.email == test_email).first()
+        assert user is not None
+        assert user.is_active is True
+        assert any(r.name == "SOC Analyst" for r in user.roles)
+    finally:
+        db.close()
+

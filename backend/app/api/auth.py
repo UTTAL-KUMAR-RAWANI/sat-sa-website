@@ -5,7 +5,10 @@ from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.core.security import verify_password, create_access_token
 from app.core.config import settings
-from app.models.identity import User
+import uuid
+from app.models.identity import User, Role
+from app.models.access import AccessRequest
+from app.models.organization import Organization, Sector
 from app.models.audit import AuditLog
 from app.api.deps import get_current_user
 
@@ -13,6 +16,21 @@ from pydantic import BaseModel, EmailStr, ConfigDict
 from app.rbac.service import AuthorizationService
 
 router = APIRouter()
+
+class PublicAccessRequestCreate(BaseModel):
+    full_name: str
+    email: EmailStr
+    organization_name: str | None = None
+    organization: str | None = None
+    department_name: str | None = None
+    department: str | None = None
+    job_title: str | None = None
+    requested_role: str | None = None
+    role: str | None = None
+    sector_name: str | None = None
+    sector: str | None = None
+    reason: str
+    additional_notes: str | None = None
 
 class LoginRequest(BaseModel):
     email: str
@@ -108,3 +126,104 @@ def read_users_me(current_user: User = Depends(get_current_user)):
         organization_id=str(current_user.organization_id) if current_user.organization_id else None,
         sector_id=str(current_user.sector_id) if current_user.sector_id else None,
     )
+
+@router.post("/request-access")
+def submit_access_request(req_data: PublicAccessRequestCreate, db: Session = Depends(get_db)):
+    clean_email = req_data.email.strip().lower()
+    
+    # Split name into first and last name
+    name_parts = req_data.full_name.strip().split(maxsplit=1)
+    first_name = name_parts[0] if name_parts else ""
+    last_name = name_parts[1] if len(name_parts) > 1 else ""
+    
+    # 1. Look up or create prospective user
+    user = db.query(User).filter(User.email == clean_email).first()
+    if not user:
+        base_username = clean_email.split("@")[0]
+        existing_username = db.query(User).filter(User.username == base_username).first()
+        username = base_username if not existing_username else f"{base_username}_{uuid.uuid4().hex[:6]}"
+        
+        user = User(
+            email=clean_email,
+            username=username,
+            first_name=first_name,
+            last_name=last_name,
+            is_active=False,  # Gated until administrator review
+            password_hash=None
+        )
+        db.add(user)
+        db.flush()
+    else:
+        # Update name if previously blank
+        if not user.first_name and first_name:
+            user.first_name = first_name
+        if not user.last_name and last_name:
+            user.last_name = last_name
+        db.flush()
+        
+    # Resolve fields with aliases
+    org_input = (req_data.organization_name or req_data.organization or "").strip()
+    role_input = (req_data.requested_role or req_data.role or "").strip()
+    sec_input = (req_data.sector_name or req_data.sector or "").strip()
+    dept_input = (req_data.department_name or req_data.department or "").strip()
+
+    # 2. Match requested role if specified
+    matched_role = None
+    if role_input:
+        matched_role = db.query(Role).filter(Role.name.ilike(role_input)).first()
+        
+    # 3. Match organization if specified
+    matched_org = None
+    if org_input:
+        matched_org = db.query(Organization).filter(Organization.name.ilike(f"%{org_input}%")).first()
+        
+    # 4. Match sector if specified
+    matched_sec = None
+    if sec_input:
+        matched_sec = db.query(Sector).filter(Sector.name.ilike(f"%{sec_input}%")).first()
+        
+    # Build comprehensive reason details
+    detailed_reason = req_data.reason.strip()
+    extras = []
+    if req_data.job_title:
+        extras.append(f"Title: {req_data.job_title.strip()}")
+    if dept_input:
+        extras.append(f"Department: {dept_input}")
+    if org_input and not matched_org:
+        extras.append(f"Organization: {org_input}")
+    if role_input and not matched_role:
+        extras.append(f"Requested Role: {role_input}")
+    if req_data.additional_notes:
+        extras.append(f"Notes: {req_data.additional_notes.strip()}")
+        
+    if extras:
+        detailed_reason += " [" + " | ".join(extras) + "]"
+        
+    # 5. Create AccessRequest with status PENDING
+    access_req = AccessRequest(
+        requester_id=user.id,
+        requested_role_id=matched_role.id if matched_role else None,
+        requested_organization_id=matched_org.id if matched_org else None,
+        requested_sector_id=matched_sec.id if matched_sec else None,
+        status="PENDING",
+        reason=detailed_reason
+    )
+    db.add(access_req)
+    db.flush()
+    
+    # 6. Immutable Audit Log
+    audit = AuditLog(
+        actor_user_id=user.id,
+        action="ACCESS_REQUEST_SUBMITTED",
+        resource_type="AccessRequest",
+        resource_id=access_req.id
+    )
+    db.add(audit)
+    db.commit()
+    
+    return {
+        "status": "PENDING",
+        "request_id": str(access_req.id),
+        "message": "Access request submitted successfully. Your request has been queued for administrator review."
+    }
+

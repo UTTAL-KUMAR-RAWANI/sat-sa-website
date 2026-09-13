@@ -2,16 +2,16 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { 
-    Activity, 
-    Radio, 
-    AlertTriangle, 
-    Layers, 
-    FileCheck2, 
-    Scale, 
-    CheckCircle2, 
-    FileSpreadsheet, 
-    Shield, 
+import {
+    Activity,
+    Radio,
+    AlertTriangle,
+    Layers,
+    FileCheck2,
+    Scale,
+    CheckCircle2,
+    FileSpreadsheet,
+    Shield,
     Gavel,
     ArrowRight,
     ExternalLink
@@ -177,7 +177,7 @@ export default function SecurityPipelineSection() {
             <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-teal-500/5 rounded-full blur-[140px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                
+
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-emerald-400">
@@ -187,7 +187,7 @@ export default function SecurityPipelineSection() {
                         From Ingestion to Regulatory Directive
                     </h2>
                     <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                        In SAT-SA, security alerts never terminate as dead tickets. Every stage links via foreign keys 
+                        In SAT-SA, security alerts never terminate as dead tickets. Every stage links via foreign keys
                         to maintain permanent evidentiary provenance.
                     </p>
                 </div>
@@ -201,11 +201,10 @@ export default function SecurityPipelineSection() {
                             <button
                                 key={stage.id}
                                 onClick={() => setSelectedStep(stage.step)}
-                                className={`flex flex-col items-center p-3 rounded-2xl border text-center transition-all focus:outline-none ${
-                                    isSelected
-                                        ? "bg-slate-900 border-emerald-500 shadow-lg shadow-emerald-500/20 scale-105 z-10"
-                                        : "bg-slate-900/50 border-slate-800/80 hover:bg-slate-900/80 hover:border-slate-700"
-                                }`}
+                                className={`flex flex-col items-center p-3 rounded-2xl border text-center transition-all focus:outline-none ${isSelected
+                                    ? "bg-slate-900 border-emerald-500 shadow-lg shadow-emerald-500/20 scale-105 z-10"
+                                    : "bg-slate-900/50 border-slate-800/80 hover:bg-slate-900/80 hover:border-slate-700"
+                                    }`}
                             >
                                 <span className="text-[10px] font-mono text-slate-400 mb-1.5 font-bold">
                                     0{stage.step}
@@ -224,7 +223,7 @@ export default function SecurityPipelineSection() {
                 {/* Spatial Spotlight Card for Active Stage */}
                 <SpatialLayer maxTilt={4} depth={10} className="w-full">
                     <div className="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900/90 via-slate-900/60 to-slate-950/90 p-8 sm:p-10 shadow-2xl backdrop-blur-xl relative overflow-hidden">
-                        
+
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                             {/* Stage Details */}
                             <div className="lg:col-span-8 space-y-4">

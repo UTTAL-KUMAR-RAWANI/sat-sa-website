@@ -4,9 +4,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth/AuthContext";
-import { Shield, Lock, Mail, AlertCircle, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Lock, Mail, AlertCircle, ArrowRight, CheckCircle2, UserPlus } from "lucide-react";
+import BrandLogo from "@/components/common/BrandLogo";
 
 const loginSchema = z.object({
     email: z.string().email("Please provide a valid email address"),
@@ -81,9 +84,7 @@ export default function LoginPage() {
             <div className="max-w-md w-full rounded-2xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl backdrop-blur-xl relative z-10 space-y-6">
                 {/* Brand Header */}
                 <div className="flex flex-col items-center text-center space-y-2">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 text-slate-950 shadow-lg shadow-emerald-500/25">
-                        <Shield className="h-6 w-6 fill-slate-950" />
-                    </div>
+                    <BrandLogo size="xl" priority />
                     <div>
                         <h1 className="text-xl font-bold tracking-tight text-white">
                             SAT-SA Platform
@@ -181,6 +182,18 @@ export default function LoginPage() {
                         <span>{isSubmitting ? "Authenticating Session..." : "Secure Sign In"}</span>
                         <ArrowRight className="h-3.5 w-3.5" />
                     </button>
+
+                    {/* Link to Request Access for new users */}
+                    <div className="pt-2 text-center">
+                        <Link
+                            href="/request-access"
+                            className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-emerald-400 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded p-1"
+                        >
+                            <UserPlus className="h-3.5 w-3.5 text-emerald-400" />
+                            <span>Don&apos;t have credentials?</span>
+                            <span className="font-semibold text-emerald-400 underline">Request Platform Access</span>
+                        </Link>
+                    </div>
                 </form>
 
                 {/* Footer security notice */}

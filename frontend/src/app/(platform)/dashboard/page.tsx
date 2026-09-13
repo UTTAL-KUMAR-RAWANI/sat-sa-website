@@ -9,6 +9,7 @@ import StatusBadge from "@/components/common/StatusBadge";
 import SeverityBadge from "@/components/common/SeverityBadge";
 import EmptyState from "@/components/common/EmptyState";
 import { KpiGridSkeleton } from "@/components/common/LoadingSkeleton";
+import BrandLogo from "@/components/common/BrandLogo";
 import { Permissions, hasPermission, hasAnyPermission } from "@/lib/rbac/permissions";
 import {
     Shield,
@@ -63,7 +64,8 @@ export default function DashboardPage() {
             {/* Header Greeting & Context */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-800/80 pb-5">
                 <div>
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-3">
+                        <BrandLogo size="md" priority />
                         <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
                             Supervisory Operations Dashboard
                         </h1>

@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import BrandLogo from "@/components/common/BrandLogo";
 import { useAuth } from "@/lib/auth/AuthContext";
 import { getVisibleNavItems } from "@/lib/navigation/nav-config";
 import {
@@ -78,9 +79,7 @@ export default function AppNavbar() {
                 {/* Brand Logo */}
                 <div className="flex items-center gap-8">
                     <Link href="/dashboard" className="flex items-center gap-2.5">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 text-slate-950 shadow-lg shadow-emerald-500/20">
-                            <Shield className="h-5 w-5 fill-slate-950" />
-                        </div>
+                        <BrandLogo size="md" priority />
                         <div className="flex flex-col">
                             <span className="text-base font-bold tracking-tight text-white">
                                 SAT-SA
